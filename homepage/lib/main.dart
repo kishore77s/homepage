@@ -33,6 +33,14 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  final List<Widget> _pages = [
+    HomeScreen(),
+    SearchScreen(),
+    AddScreen(),
+    FavoritesScreen(),
+    ProfileScreen(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,12 +48,7 @@ class _HomePageState extends State<HomePage> {
         title: Text('Home Page'),
         backgroundColor: const Color.fromARGB(255, 93, 93, 93),
       ),
-      body: Center(
-        child: Text(
-          'Selected Index: $_selectedIndex',
-          style: TextStyle(fontSize: 24),
-        ),
-      ),
+      body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
@@ -62,6 +65,10 @@ class _HomePageState extends State<HomePage> {
             label: 'Search',
           ),
           BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.plus_circle),
+            label: 'Add',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.heart),
             label: 'Favorites',
           ),
@@ -75,3 +82,47 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context){
+    return const Center(
+      child: Text('Home Screen'),
+    );
+  }
+}
+
+class SearchScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text('Search Screen'),
+    );
+  }
+}
+
+class AddScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text('Add Screen'),
+    );
+  }
+}
+
+class FavoritesScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text('Favorites Screen'),
+    );
+  }
+}
+
+class ProfileScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text('Profile Screen'),
+    );
+  }
+}
